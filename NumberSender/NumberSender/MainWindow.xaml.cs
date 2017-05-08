@@ -31,7 +31,14 @@ namespace NumberSender
 
         private static readonly HttpClient client = new HttpClient();
 
-        private readonly NumberService _numberService;
+        private static TakenNumberController _takenNumber = new TakenNumberController();
+
+        private static Dictionary<string, string> values1;
+
+        private static Dictionary<string, string> values2;
+
+        private static Dictionary<string, string> values3;
+
 
 
         public MainWindow()
@@ -41,7 +48,7 @@ namespace NumberSender
             thr2.Start();
             thr3.Start();
             this.DataContext = _vm;
-           _numberService.postNumbersAsync();
+            
         }
 
 
@@ -61,12 +68,15 @@ namespace NumberSender
                     i++;
 
                 }
-                Console.WriteLine(i);
-                Thread.Sleep(400);
+                Thread.Sleep(20000);
                 _vm.str1 = i.ToString();
-
-                Console.WriteLine("String: " + _vm.str1);
-                
+                Console.WriteLine(_vm.str1);
+                values1 = new Dictionary<string, string>
+                {
+                    {"number", _vm.str1},
+                    {"officeId", "1"},
+                };
+                _takenNumber.Post(values1);
             }
 
         }
@@ -86,13 +96,16 @@ namespace NumberSender
                 {
                     i++;
                 }
-                Console.WriteLine(i);
-                Thread.Sleep(100);
+               
+                Thread.Sleep(10000);
                 _vm.str2 = i.ToString();
-
-                Console.WriteLine("String: " + _vm.str2);
-                
-
+                Console.WriteLine(_vm.str2);
+                values2 = new Dictionary<string, string>
+                {
+                    {"number", _vm.str2},
+                    {"officeId", "2"},
+                };
+                _takenNumber.Post(values2);
             }
 
         }
@@ -110,13 +123,15 @@ namespace NumberSender
                 {
                     i++;
                 }
-                Console.WriteLine(i);
                 Thread.Sleep(2000);
                 _vm.str3 = i.ToString();
-
-                Console.WriteLine("String: " + _vm.str3);
-                
-
+                Console.WriteLine(_vm.str3);
+                values3 = new Dictionary<string, string>
+                {
+                    {"number", _vm.str3},
+                    {"officeId", "3"},
+                };
+                _takenNumber.Post(values3);
             }
 
         }
