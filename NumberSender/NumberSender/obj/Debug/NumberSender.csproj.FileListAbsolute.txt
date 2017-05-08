@@ -1,0 +1,14 @@
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\bin\Debug\NumberSender.exe.config
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\bin\Debug\NumberSender.exe
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\bin\Debug\NumberSender.pdb
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\NumberSender.csprojResolveAssemblyReference.cache
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\MainWindow.g.cs
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\App.g.cs
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\NumberSender_MarkupCompile.cache
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\NumberSender_MarkupCompile.lref
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\MainWindow.baml
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\NumberSender.g.resources
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\NumberSender.Properties.Resources.resources
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\NumberSender.csproj.GenerateResource.Cache
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\NumberSender.exe
+c:\users\semjo\documents\visual studio 2017\Projects\NumberSender\NumberSender\obj\Debug\NumberSender.pdb
