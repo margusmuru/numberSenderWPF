@@ -12,9 +12,6 @@ namespace NumberSender
     public class TakenNumberController
     {
         private static readonly HttpClient Client = new HttpClient();
-
-        public static MainWindowVM Vm = new MainWindowVM();
-
        
         public async Task Post(Dictionary<string, string> values)
         {

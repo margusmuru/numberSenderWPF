@@ -17,12 +17,16 @@ namespace NumberSender
         private readonly MainWindowVM _vm;
         private readonly int _threadNum;
         private readonly int _officeId;
+        private readonly int _rndMin;
+        private readonly int _rndMax;
 
-        public ThreadClass(MainWindowVM vm, int num, int office)
+        public ThreadClass(MainWindowVM vm, int num, int office, int rndStart, int rndStop)
         {
             _vm = vm;
             _threadNum = num;
             _officeId = office;
+            _rndMin = rndStart * 1000;
+            _rndMax = rndStop * 1000;
         }
 
         public void postNumber()
@@ -39,7 +43,7 @@ namespace NumberSender
                     i++;
                 }
 
-                int waitTime = _random.Next(5000, 20000);
+                int waitTime = _random.Next(_rndMin, _rndMax);
 
                 Console.WriteLine("Thread sleeps now " + waitTime);
 
@@ -56,6 +60,8 @@ namespace NumberSender
                 };
 
                 Console.WriteLine(dto.toJSON());
+
+                _vm.SetNumberResult(_threadNum, dto.toJSON());
 
                 TakenNumber.Post(dto.toJSON());
             }
