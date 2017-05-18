@@ -10,7 +10,7 @@ namespace NumberSender
     public class ThreadClass
     {
 
-        private readonly TakenNumberController TakenNumber = new TakenNumberController();
+        private readonly TakenNumberController _takenNumber = new TakenNumberController();
 
         private readonly Random _random = new Random();
 
@@ -29,7 +29,7 @@ namespace NumberSender
             _rndMax = rndStop * 1000;
         }
 
-        public void postNumber()
+        public void PostNumber()
         {
             int i = 0;
             while (true)
@@ -43,13 +43,14 @@ namespace NumberSender
                     i++;
                 }
 
-                int waitTime = _random.Next(_rndMin, _rndMax);
+                int waitTime = _random.Next(minValue: _rndMin, maxValue: _rndMax);
 
-                Console.WriteLine("Thread sleeps now " + waitTime);
+                //Console.WriteLine("Thread sleeps now " + waitTime);
+                _vm.SetSleepingTime(id: _threadNum, text: waitTime.ToString());
 
-                Thread.Sleep(waitTime);
+                Thread.Sleep(millisecondsTimeout: waitTime);
 
-                _vm.SetNumberValue(_threadNum, i.ToString());
+                _vm.SetNumberValue(id: _threadNum, text: i.ToString());
 
                 TakenNumberDTO dto = new TakenNumberDTO()
                 {
@@ -59,18 +60,18 @@ namespace NumberSender
                     OfficeId = _officeId
                 };
 
-                Console.WriteLine(dto.toJSON());
+                //Console.WriteLine("Post: " + dto.toJSON());
 
-                _vm.SetNumberResult(_threadNum, dto.toJSON());
+                _vm.SetNumberResult(id: _threadNum, text: "Posted: \n" + dto.toJSON() + "\n");
 
-                TakenNumber.Post(dto.toJSON());
+                _takenNumber.Post(_vm, id: _officeId, json: dto.toJSON());
             }
 
         }
 
         public static String GetTimestamp(DateTime value)
         {
-            return value.ToString("yyyyMMddHHmmssffff");
+            return value.ToString(format: "yyyyMMddHHmmssffff");
         }
     }
 

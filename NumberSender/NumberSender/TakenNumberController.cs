@@ -16,21 +16,21 @@ namespace NumberSender
         public async Task Post(Dictionary<string, string> values)
         {
            
-            var content = new FormUrlEncodedContent(values);
+            var content = new FormUrlEncodedContent(nameValueCollection: values);
 
             var response = await Client.PostAsync("http://localhost:29594/api/takennumbers", content);
 
             var responseString = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseString);
+            Console.WriteLine(value: responseString);
         }
 
-        public async Task Post(String json)
+        public async Task Post(MainWindowVM vm, int id, String json)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:29594/api/takennumbers");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(requestUriString: "http://localhost:29594/api/takennumbers");
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            using (var streamWriter = new StreamWriter(stream: httpWebRequest.GetRequestStream()))
             {
                 //string json = "{\"user\":\"test\"," +
                   //            "\"password\":\"bla\"}";
@@ -41,10 +41,11 @@ namespace NumberSender
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            using (var streamReader = new StreamReader(stream: httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                Console.WriteLine(value: "result: " + result);
+                //Console.WriteLine(value: "result: " + result);
+                vm.SetNumberResult(id: id, text: "Returned: \n" + result + "\n");
             }
         }
 

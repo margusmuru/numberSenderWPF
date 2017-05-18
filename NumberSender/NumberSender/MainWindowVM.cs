@@ -40,7 +40,11 @@ namespace NumberSender
         public string Result1
         {
             get { return _result1; }
-            set { _result1 = value; OnPropertyChanged(propertyName: nameof(Result1));}
+            set
+            {
+                _result1 = value + _result1;
+                OnPropertyChanged(propertyName: nameof(Result1));
+            }
         }
 
         private string _result2;
@@ -57,67 +61,25 @@ namespace NumberSender
             set { _result3 = value; OnPropertyChanged(propertyName: nameof(Result3)); }
         }
 
-        private int _officeId1;
-        public int OfficeId1
+        private string _sleepingThread1;
+        public string SleepingThread1
         {
-            get { return _officeId1; }
-            set { _officeId1 = value; }
+            get { return _sleepingThread1; }
+            set { _sleepingThread1 = value; OnPropertyChanged(propertyName: nameof(SleepingThread1)); }
         }
 
-        private int _officeId2;
-        public int OfficeId2
+        private string _sleepingThread2;
+        public string SleepingThread2
         {
-            get { return _officeId2; }
-            set { _officeId2 = value; }
+            get { return _sleepingThread2; }
+            set { _sleepingThread2 = value; OnPropertyChanged(propertyName: nameof(SleepingThread2)); }
         }
 
-        private int _officeId3;
-        public int OfficeId3
+        private string _sleepingThread3;
+        public string SleepingThread3
         {
-            get { return _officeId3; }
-            set { _officeId3 = value; }
-        }
-
-        private int _rndStartThread1;
-        public int RndStartThread1
-        {
-            get { return _rndStartThread1; }
-            set { _rndStartThread1 = value; }
-        }
-
-        private int _rndStopThread1;
-        public int RndStopThread1
-        {
-            get { return _rndStopThread1; }
-            set { _rndStopThread1 = value; }
-        }
-
-        private int _rndStartThread2;
-        public int RndStartThread2
-        {
-            get { return _rndStartThread2; }
-            set { _rndStartThread2 = value; }
-        }
-
-        private int _rndStopThread2;
-        public int RndStopThread2
-        {
-            get { return _rndStopThread2; }
-            set { _rndStopThread2 = value; }
-        }
-
-        private int _rndStartThread3;
-        public int RndStartThread3
-        {
-            get { return _rndStartThread3; }
-            set { _rndStartThread3 = value; }
-        }
-
-        private int _rndStopThread3;
-        public int RndStopThread3
-        {
-            get { return _rndStopThread3; }
-            set { _rndStopThread3 = value; }
+            get { return _sleepingThread3; }
+            set { _sleepingThread3 = value; OnPropertyChanged(propertyName: nameof(SleepingThread3)); }
         }
 
 
@@ -129,33 +91,31 @@ namespace NumberSender
         public MainWindowVM(MainWindow mainWindow)
         {
             _mainWindow = mainWindow;
+
         }
 
-        public void StartThread(int id)
+        public void StartThread(int id, int officeId, int rndMin, int rndMax)
         {
             switch (id)
             {
                 case 1:
                     _mainWindow.ButtonStartThread1.IsEnabled = false;
-                    ThreadClass threadClass1 = new ThreadClass(this, 1, _officeId1, RndStartThread1, RndStopThread1);
-                    _thr1 = new Thread(threadClass1.postNumber);
+                    ThreadClass threadClass1 = new ThreadClass(vm: this, num: 1, office: officeId, rndStart: rndMin, rndStop: rndMax);
+                    _thr1 = new Thread(start: threadClass1.PostNumber);
                     _thr1.Start();
                     _mainWindow.TextBoxDisplayNumber1.Text = "S";
-                    _mainWindow.TextBlockResult1.Text = "";
                     break;
                 case 2:
-                    ThreadClass threadClass2 = new ThreadClass(this, 2, _officeId2, RndStartThread2, RndStopThread2);
-                    _thr1 = new Thread(threadClass2.postNumber);
+                    ThreadClass threadClass2 = new ThreadClass(vm: this, num: 2, office: officeId, rndStart: rndMin, rndStop: rndMax);
+                    _thr1 = new Thread(start: threadClass2.PostNumber);
                     _thr1.Start();
                     _mainWindow.TextBoxDisplayNumber2.Text = "S";
-                    _mainWindow.TextBlockResult1.Text = "";
                     break;
                 case 3:
-                    ThreadClass threadClass3 = new ThreadClass(this, 3, _officeId2, RndStartThread3, RndStopThread3);
-                    _thr1 = new Thread(threadClass3.postNumber);
+                    ThreadClass threadClass3 = new ThreadClass(vm: this, num: 3, office: officeId, rndStart: rndMin, rndStop: rndMax);
+                    _thr1 = new Thread(start: threadClass3.PostNumber);
                     _thr1.Start();
                     _mainWindow.TextBoxDisplayNumber3.Text = "S";
-                    _mainWindow.TextBlockResult1.Text = "";
                     break;
             }
         }
@@ -165,7 +125,7 @@ namespace NumberSender
             switch (id)
             {
                 case 1:
-                    if (_thr1.IsAlive)
+                    if (_thr1 != null && _thr1.IsAlive)
                     {
                         _thr1.Abort();
                         _mainWindow.ButtonStartThread1.IsEnabled = true;
@@ -173,14 +133,14 @@ namespace NumberSender
                     }
                     break;
                 case 2:
-                    if (_thr2.IsAlive)
+                    if (_thr2 != null && _thr2.IsAlive)
                     {
                         _thr2.Abort();
                         _mainWindow.TextBoxDisplayNumber2.Text = "X";
                     }
                     break;
                 case 3:
-                    if (_thr3.IsAlive)
+                    if (_thr3 != null && _thr3.IsAlive)
                     {
                         _thr3.Abort();
                         _mainWindow.TextBoxDisplayNumber3.Text = "X";
@@ -216,7 +176,23 @@ namespace NumberSender
                     Result2 = text;
                     break;
                 case 3:
-                    Result2 = text;
+                    Result3 = text;
+                    break;
+            }
+        }
+
+        public void SetSleepingTime(int id, string text)
+        {
+            switch (id)
+            {
+                case 1:
+                    SleepingThread1 = text;
+                    break;
+                case 2:
+                    SleepingThread2 = text;
+                    break;
+                case 3:
+                    SleepingThread3 = text;
                     break;
             }
         }
