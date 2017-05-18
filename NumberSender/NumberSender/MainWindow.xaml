@@ -8,9 +8,9 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Rectangle Fill="#000" HorizontalAlignment="Left" Height="319" Stroke="Black" VerticalAlignment="Top" Width="517"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="66" Margin="28,118,0,0" TextWrapping="Wrap" Text="{Binding Path=str1}" VerticalAlignment="Top" Width="137" Background="Black" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="66" Margin="190,118,0,0" TextWrapping="Wrap" Text="{Binding Path=str2}" VerticalAlignment="Top" Width="137" Background="Black" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="66" Margin="349,118,0,0" TextWrapping="Wrap" Text="{Binding Path=str3}" VerticalAlignment="Top" Width="137" Background="Black" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="66" Margin="28,118,0,0" TextWrapping="Wrap" Text="{Binding Path=Str1}" VerticalAlignment="Top" Width="137" Background="Black" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="66" Margin="190,118,0,0" TextWrapping="Wrap" Text="{Binding Path=Str2}" VerticalAlignment="Top" Width="137" Background="Black" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="66" Margin="349,118,0,0" TextWrapping="Wrap" Text="{Binding Path=Str3}" VerticalAlignment="Top" Width="137" Background="Black" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
 
     </Grid>
