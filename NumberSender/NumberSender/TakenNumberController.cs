@@ -45,7 +45,7 @@ namespace NumberSender
             {
                 var result = streamReader.ReadToEnd();
                 //Console.WriteLine(value: "result: " + result);
-                vm.SetNumberResult(id: id, text: "Returned: \n" + result + "\n");
+                vm.SetNumberResult(id: id, text: "Returned: \n" + result + "\n", dto: null);
             }
         }
 

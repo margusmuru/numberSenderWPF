@@ -73,6 +73,37 @@ namespace NumberSender
             TextBoxRandomMaxThread1.Background = Brushes.White;
         }
 
+        private void ButtonStartThread1T_Click(object sender, RoutedEventArgs e)
+        {
+            int rndMin = -1;
+            int rndMax = -1;
+            Int32.TryParse(s: TextBoxRandomMinThread1T.Text, result: out rndMin);
+            Int32.TryParse(s: TextBoxRandomMaxThread1T.Text, result: out rndMax);
+            if (rndMin < 0)
+            {
+                TextBoxRandomMinThread1T.Background = Brushes.Red;
+            }
+            if (rndMax <= rndMin)
+            {
+                TextBoxRandomMaxThread1T.Background = Brushes.Red;
+            }
+            if (rndMin >= 0 && rndMax > rndMin)
+            {
+                TextBoxRandomMinThread1T.Background = Brushes.Green;
+                TextBoxRandomMaxThread1T.Background = Brushes.Green;
+                _vm.StartThreadT(id: 1, rndMin: rndMin, rndMax: rndMax);
+            }
+        }
+
+        private void ButtonStopThread1T_Click(object sender, RoutedEventArgs e)
+        {
+            _vm.StopThread(id: 1);
+
+            TextBoxOfficeIdThread1.Background = Brushes.White;
+            TextBoxRandomMinThread1.Background = Brushes.White;
+            TextBoxRandomMaxThread1.Background = Brushes.White;
+        }
+
         private void DataWindow_Closing(object sender, CancelEventArgs e)
         {
             string msg = "Kill all threads and exit?";

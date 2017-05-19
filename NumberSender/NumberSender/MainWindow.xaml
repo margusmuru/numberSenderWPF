@@ -26,11 +26,19 @@
             <ColumnDefinition Width="140"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
-            <TextBox x:Name="TextBoxDisplayNumber1"  HorizontalAlignment="Left" Height="120" Text="{Binding Path=Str1}" VerticalAlignment="Top" Width="120" Background="#383838" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <StackPanel Orientation="Horizontal">
-                <Label Foreground="DarkGray">Sleeping: </Label>
-                <TextBlock x:Name="TextBlockSleepingThread1" Foreground="DarkGray" Text="{Binding SleepingThread1}" Height="16"></TextBlock>
+            <StackPanel Orientation="Vertical">
+                <TextBox x:Name="TextBoxDisplayNumber1"  HorizontalAlignment="Left" Height="55" Text="{Binding Path=Str1}" Width="120" Background="#383838" Foreground="Red" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="DarkGray">Sleeping:</Label>
+                    <TextBlock x:Name="TextBlockSleepingThread1" Foreground="DarkGray" Text="{Binding SleepingThread1}" Height="16"></TextBlock>
+                </StackPanel>
+                <TextBox x:Name="TextBoxDisplayNumber1T"  HorizontalAlignment="Left" Height="55" Text="{Binding Path=Str1T}" Width="120" Background="#383838" Foreground="Green" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="DarkGray">Sleeping:</Label>
+                    <TextBlock x:Name="TextBlockSleepingThread1T" Foreground="DarkGray" Text="{Binding SleepingThread1T}" Height="16"></TextBlock>
+                </StackPanel>
             </StackPanel>
+            
         </StackPanel>
         <TextBox x:Name="TextBoxDisplayNumber2" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Height="120" Text="{Binding Path=Str2}" VerticalAlignment="Top" Width="120" Background="#383838" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="TextBoxDisplayNumber3" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Height="120" Text="{Binding Path=Str3}" VerticalAlignment="Top" Width="120" Background="#383838" Foreground="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -53,11 +61,19 @@
                 <TextBox x:Name="TextBoxRandomMinThread1" Width="30" Margin="20,0,0,0" Text="5"></TextBox>
                 <TextBox x:Name="TextBoxRandomMaxThread1" Width="30" Margin="10,0,0,0" Text="10"></TextBox>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Button x:Name="ButtonStartThread1" Width="60" Background="ForestGreen" Click="ButtonStartThread1_Click">Start</Button>
                 <Button x:Name="ButtonStopThread1" Width="60" Background="Red" Click="ButtonStopThread1_Click">Stop</Button>
             </StackPanel>
-            
+            <Label Foreground="DarkGray" Height="25">Service Rnd Min Max</Label>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="TextBoxRandomMinThread1T" Width="30" Margin="20,0,0,0" Text="5"></TextBox>
+                <TextBox x:Name="TextBoxRandomMaxThread1T" Width="30" Margin="10,0,0,0" Text="10"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button x:Name="ButtonStartThread1T" Width="60" Background="ForestGreen" Click="ButtonStartThread1T_Click">Start</Button>
+                <Button x:Name="ButtonStopThread1T" Width="60" Background="Red" Click="ButtonStopThread1T_Click">Stop</Button>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

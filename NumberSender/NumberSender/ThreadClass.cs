@@ -62,7 +62,7 @@ namespace NumberSender
 
                 //Console.WriteLine("Post: " + dto.toJSON());
 
-                _vm.SetNumberResult(id: _threadNum, text: "Posted: \n" + dto.toJSON() + "\n");
+                _vm.SetNumberResult(id: _threadNum, text: "Posted: \n" + dto.toJSON() + "\n", dto: dto);
 
                 _takenNumber.Post(_vm, id: _officeId, json: dto.toJSON());
             }
