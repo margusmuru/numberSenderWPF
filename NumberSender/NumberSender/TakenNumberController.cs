@@ -26,29 +26,43 @@ namespace NumberSender
 
         public async Task Post(MainWindowVM vm, int id, String json)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(requestUriString: "http://localhost:29594/api/takennumbers");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(requestUriString: vm.Url);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
             using (var streamWriter = new StreamWriter(stream: httpWebRequest.GetRequestStream()))
             {
-                //string json = "{\"user\":\"test\"," +
-                  //            "\"password\":\"bla\"}";
 
                 streamWriter.Write(json);
-                //streamWriter.Flush();
-                //streamWriter.Close();
             }
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             using (var streamReader = new StreamReader(stream: httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                //Console.WriteLine(value: "result: " + result);
                 vm.SetNumberResult(id: id, text: "Returned: \n" + result + "\n", dto: null);
             }
         }
 
+        public async Task Put(MainWindowVM vm, int id, String json)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(requestUriString: vm.Url);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "PUT";
+
+            using (var streamWriter = new StreamWriter(stream: httpWebRequest.GetRequestStream()))
+            {
+
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(stream: httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+                vm.SetNumberResultT(id: id, text: "Returned from update: \n" + result + "\n");
+            }
+        }
 
 
 

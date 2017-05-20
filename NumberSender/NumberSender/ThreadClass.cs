@@ -64,7 +64,7 @@ namespace NumberSender
 
                 _vm.SetNumberResult(id: _threadNum, text: "Posted: \n" + dto.toJSON() + "\n", dto: dto);
 
-                _takenNumber.Post(_vm, id: _officeId, json: dto.toJSON());
+                _takenNumber.Post(_vm, id: _threadNum, json: dto.toJSON());
             }
 
         }

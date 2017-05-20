@@ -15,6 +15,17 @@ namespace NumberSender
         private string _str2 = "";
         private string _str3 = "";
 
+        private string _url;
+        public string Url
+        {
+            get { return _url; }
+            set
+            {
+                _url = value;
+                OnPropertyChanged(propertyName: nameof(Url));
+            }
+        }
+
         public string Str1
         {
             get => _str1;
@@ -70,14 +81,21 @@ namespace NumberSender
         public string Result2
         {
             get => _result2;
-            set { _result2 = value; OnPropertyChanged(propertyName: nameof(Result2)); }
+            set {
+                _result2 = value + _result2;
+                OnPropertyChanged(propertyName: nameof(Result2));
+            }
         }
 
         private string _result3;
         public string Result3
         {
             get => _result3;
-            set { _result3 = value; OnPropertyChanged(propertyName: nameof(Result3)); }
+            set
+            {
+                _result3 = value + _result3;
+                OnPropertyChanged(propertyName: nameof(Result3));
+            }
         }
 
         private string _sleepingThread1;
@@ -126,6 +144,9 @@ namespace NumberSender
         private Thread _thr1;
         private Thread _thr2;
         private Thread _thr3;
+        private Thread _thr1T;
+        private Thread _thr2T;
+        private Thread _thr3T;
 
         public List<TakenNumberDTO> Thread1Dtos;
         public List<TakenNumberDTO> Thread2Dtos;
@@ -137,6 +158,7 @@ namespace NumberSender
             Thread1Dtos = new List<TakenNumberDTO>();
             Thread2Dtos = new List<TakenNumberDTO>();
             Thread3Dtos = new List<TakenNumberDTO>();
+            Url = "http://localhost:29594/api/takennumbers";
         }
 
         public void StartThread(int id, int officeId, int rndMin, int rndMax)
@@ -151,12 +173,14 @@ namespace NumberSender
                     _mainWindow.TextBoxDisplayNumber1.Text = "S";
                     break;
                 case 2:
+                    _mainWindow.ButtonStartThread2.IsEnabled = false;
                     ThreadClass threadClass2 = new ThreadClass(vm: this, num: 2, office: officeId, rndStart: rndMin, rndStop: rndMax);
                     _thr2 = new Thread(start: threadClass2.PostNumber);
                     _thr2.Start();
                     _mainWindow.TextBoxDisplayNumber2.Text = "S";
                     break;
                 case 3:
+                    _mainWindow.ButtonStartThread3.IsEnabled = false;
                     ThreadClass threadClass3 = new ThreadClass(vm: this, num: 3, office: officeId, rndStart: rndMin, rndStop: rndMax);
                     _thr3 = new Thread(start: threadClass3.PostNumber);
                     _thr3.Start();
@@ -171,22 +195,24 @@ namespace NumberSender
             {
                 case 1:
                     _mainWindow.ButtonStartThread1T.IsEnabled = false;
-                    //ThreadClass threadClass1 = new ThreadClass(vm: this, num: 1, office: officeId, rndStart: rndMin, rndStop: rndMax);
-                    //_thr1 = new Thread(start: threadClass1.PostNumber);
-                    //_thr1.Start();
+                    ThreadClassT threadClass1T = new ThreadClassT(vm: this, threadNum: 1, rndMin: rndMin, rndMax: rndMax);
+                    _thr1T = new Thread(start: threadClass1T.PostNumber);
+                    _thr1T.Start();
                     _mainWindow.TextBoxDisplayNumber1T.Text = "S";
                     break;
                 case 2:
-                    //ThreadClass threadClass2 = new ThreadClass(vm: this, num: 2, office: officeId, rndStart: rndMin, rndStop: rndMax);
-                    //_thr1 = new Thread(start: threadClass2.PostNumber);
-                    //_thr1.Start();
-                    //_mainWindow.TextBoxDisplayNumber2.Text = "S";
+                    _mainWindow.ButtonStartThread2T.IsEnabled = false;
+                    ThreadClassT threadClass2T = new ThreadClassT(vm: this, threadNum: 2, rndMin: rndMin, rndMax: rndMax);
+                    _thr2T = new Thread(start: threadClass2T.PostNumber);
+                    _thr2T.Start();
+                    _mainWindow.TextBoxDisplayNumber2T.Text = "S";
                     break;
                 case 3:
-                    //ThreadClass threadClass3 = new ThreadClass(vm: this, num: 3, office: officeId, rndStart: rndMin, rndStop: rndMax);
-                    //_thr1 = new Thread(start: threadClass3.PostNumber);
-                    //_thr1.Start();
-                    //_mainWindow.TextBoxDisplayNumber3.Text = "S";
+                    _mainWindow.ButtonStartThread3T.IsEnabled = false;
+                    ThreadClassT threadClass3T = new ThreadClassT(vm: this, threadNum: 3, rndMin: rndMin, rndMax: rndMax);
+                    _thr3T = new Thread(start: threadClass3T.PostNumber);
+                    _thr3T.Start();
+                    _mainWindow.TextBoxDisplayNumber3T.Text = "S";
                     break;
             }
         }
@@ -209,7 +235,7 @@ namespace NumberSender
                     {
                         _thr2.Abort();
                         SleepingThread2 = "";
-                        //TODO _mainWindow.ButtonStartThread2.IsEnabled = true;
+                        _mainWindow.ButtonStartThread2.IsEnabled = true;
                         _mainWindow.TextBoxDisplayNumber2.Text = "X";
                     }
                     break;
@@ -218,8 +244,42 @@ namespace NumberSender
                     {
                         _thr3.Abort();
                         SleepingThread3 = "";
-                        //TODO _mainWindow.ButtonStartThread3.IsEnabled = true;
+                        _mainWindow.ButtonStartThread3.IsEnabled = true;
                         _mainWindow.TextBoxDisplayNumber3.Text = "X";
+                    }
+                    break;
+            }
+        }
+
+        public void StopThreadT(int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    if (_thr1T != null && _thr1T.IsAlive)
+                    {
+                        _thr1T.Abort();
+                        SleepingThread1T = "";
+                        _mainWindow.ButtonStartThread1T.IsEnabled = true;
+                        _mainWindow.TextBoxDisplayNumber1T.Text = "X";
+                    }
+                    break;
+                case 2:
+                    if (_thr2T != null && _thr2T.IsAlive)
+                    {
+                        _thr2T.Abort();
+                        SleepingThread2T = "";
+                        _mainWindow.ButtonStartThread2T.IsEnabled = true;
+                        _mainWindow.TextBoxDisplayNumber2T.Text = "X";
+                    }
+                    break;
+                case 3:
+                    if (_thr3T != null && _thr3T.IsAlive)
+                    {
+                        _thr3T.Abort();
+                        SleepingThread3T = "";
+                        _mainWindow.ButtonStartThread3T.IsEnabled = true;
+                        _mainWindow.TextBoxDisplayNumber3T.Text = "X";
                     }
                     break;
             }
@@ -285,6 +345,22 @@ namespace NumberSender
             }
         }
 
+        public void SetNumberResultT(int id, string text)
+        {
+            switch (id)
+            {
+                case 1:
+                    Result1 = text;
+                    break;
+                case 2:
+                    Result2 = text;
+                    break;
+                case 3:
+                    Result3 = text;
+                    break;
+            }
+        }
+
         public void SetSleepingTime(int id, string text)
         {
             switch (id)
@@ -325,7 +401,7 @@ namespace NumberSender
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(sender: this, e: new PropertyChangedEventArgs(propertyName: propertyName));
         }
     }
 }

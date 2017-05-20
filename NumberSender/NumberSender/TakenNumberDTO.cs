@@ -22,18 +22,18 @@ namespace NumberSender
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append($"id: {Id}\n");
-            builder.Append($"number: {Number}\n");
-            builder.Append($"DateTaken: {DateTaken}\n");
-            builder.Append($"OfficeId: {OfficeId}\n");
-            builder.Append($"DateService: {DateService}\n");
-            builder.Append($"WaitTime: {WaitTime}");
+            builder.Append(value: $"id: {Id}\n");
+            builder.Append(value: $"number: {Number}\n");
+            builder.Append(value: $"DateTaken: {DateTaken}\n");
+            builder.Append(value: $"OfficeId: {OfficeId}\n");
+            builder.Append(value: $"DateService: {DateService}\n");
+            builder.Append(value: $"WaitTime: {WaitTime}");
             return builder.ToString();
         }
 
         public string toJSON()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(value: this);
         }
     }
 }
