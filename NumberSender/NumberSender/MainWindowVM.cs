@@ -159,6 +159,68 @@ namespace NumberSender
             Thread2Dtos = new List<TakenNumberDTO>();
             Thread3Dtos = new List<TakenNumberDTO>();
             Url = "http://localhost:29594/api/takennumbers";
+
+            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += dispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(hours: 0,minutes: 0,seconds: 1);
+            dispatcherTimer.Start();
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            int st1 = 0;
+            Int32.TryParse(s: SleepingThread1, result: out st1);
+            if (st1 > 0)
+            {
+                st1 -= 1;
+                if (st1 < 0) st1 = 0;
+                SleepingThread1 = st1.ToString();
+            }
+
+            int st2 = 0;
+            Int32.TryParse(s: SleepingThread2, result: out st2);
+            if (st2 > 0)
+            {
+                st2 -= 1;
+                if (st2 < 0) st2 = 0;
+                SleepingThread2 = st2.ToString();
+            }
+
+            int st3 = 0;
+            Int32.TryParse(s: SleepingThread3, result: out st3);
+            if (st3 > 0)
+            {
+                st3 -= 1;
+                if (st3 < 0) st3 = 0;
+                SleepingThread3 = st3.ToString();
+            }
+
+            int st1T = 0;
+            Int32.TryParse(s: SleepingThread1T, result: out st1T);
+            if (st1T > 0)
+            {
+                st1T -= 1;
+                if (st1T < 0) st1T = 0;
+                SleepingThread1T = st1T.ToString();
+            }
+
+            int st2T = 0;
+            Int32.TryParse(s: SleepingThread2T, result: out st2T);
+            if (st2T > 0)
+            {
+                st2T -= 1;
+                if (st2T < 0) st2T = 0;
+                SleepingThread2T = st2T.ToString();
+            }
+
+            int st3T = 0;
+            Int32.TryParse(s: SleepingThread3T, result: out st3T);
+            if (st3T > 0)
+            {
+                st3T -= 1;
+                if (st3T < 0) st3T = 0;
+                SleepingThread3T = st3T.ToString();
+            }
         }
 
         public void StartThread(int id, int officeId, int rndMin, int rndMax, int numType, int numMin, int numMax)

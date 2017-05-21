@@ -28,8 +28,8 @@ namespace NumberSender
             _vm = vm;
             _threadNum = num;
             _officeId = office;
-            _rndMin = rndStart * 1000;
-            _rndMax = rndStop * 1000;
+            _rndMin = rndStart;
+            _rndMax = rndStop;
             _numType = numType;
             _numMin = numMin;
             _numMax = numMax;
@@ -54,7 +54,7 @@ namespace NumberSender
                 //Console.WriteLine("Thread sleeps now " + waitTime);
                 _vm.SetSleepingTime(id: _threadNum, text: waitTime.ToString());
 
-                Thread.Sleep(millisecondsTimeout: waitTime);
+                Thread.Sleep(millisecondsTimeout: waitTime * 1000);
 
                 _vm.SetNumberValue(id: _threadNum, text: i.ToString());
 

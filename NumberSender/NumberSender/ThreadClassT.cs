@@ -19,8 +19,8 @@ namespace NumberSender
         private readonly MainWindowVM _vm;
         public ThreadClassT(MainWindowVM vm, int threadNum, int rndMin, int rndMax)
         {
-            _rndMin = rndMin * 1000;
-            _rndMax = rndMax * 1000;
+            _rndMin = rndMin;
+            _rndMax = rndMax;
             _vm = vm;
             _threadNum = threadNum;
         }
@@ -31,7 +31,7 @@ namespace NumberSender
             {
                 //TODO
 
-                int waitTime = 1000;
+                int waitTime = 1;
 
                 if (
                     (_threadNum == 1 && _vm.Thread1Dtos.Count > 0) ||
@@ -41,7 +41,7 @@ namespace NumberSender
                 {
                     waitTime = _random.Next(minValue: _rndMin, maxValue: _rndMax);
                     _vm.SetSleepingTimeT(id: _threadNum, text: waitTime.ToString());
-                    Thread.Sleep(millisecondsTimeout: waitTime);
+                    Thread.Sleep(millisecondsTimeout: waitTime * 1000);
 
                     TakenNumberDTO dto = null;
                     switch (_threadNum)
@@ -82,7 +82,7 @@ namespace NumberSender
                 {
                     _vm.SetSleepingTimeT(id: _threadNum, text: waitTime.ToString());
 
-                    Thread.Sleep(millisecondsTimeout: waitTime);
+                    Thread.Sleep(millisecondsTimeout: waitTime * 1000);
                 }
 
                 
