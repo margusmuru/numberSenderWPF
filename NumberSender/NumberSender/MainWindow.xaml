@@ -79,13 +79,13 @@
         
         
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="5">
-            <Label Foreground="DarkGray" Height="20" FontSize="8">Office Id | Random Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">Office PostId | Random Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxOfficeIdThread1" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxRandomMinThread1" Width="30" Margin="20,0,0,0" Text="5"></TextBox>
                 <TextBox x:Name="TextBoxRandomMaxThread1" Width="30" Margin="10,0,0,0" Text="10"></TextBox>
             </StackPanel>
-            <Label Foreground="DarkGray" Height="20" FontSize="8">NumType | Number Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">TakenNumberType | Number Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxNumtypeThread1" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxNumberMinThread1" Width="30" Margin="20,0,0,0" Text="1"></TextBox>
@@ -93,7 +93,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                 <Button x:Name="ButtonStartThread1" Width="60" Background="ForestGreen" Click="ButtonStartThread1_Click">Start</Button>
-                <Button x:Name="ButtonStopThread1" Width="60" Background="Red" Click="ButtonStopThread1_Click">Stop</Button>
+                <Button x:Name="ButtonStopThread1" Width="60" Background="Red" IsEnabled="False" Click="ButtonStopThread1_Click">Stop</Button>
             </StackPanel>
             <Label Foreground="DarkGray" Height="20" FontSize="8">Service Random Min Max</Label>
             <StackPanel Orientation="Horizontal">
@@ -102,18 +102,18 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                 <Button x:Name="ButtonStartThread1T" Width="60" Background="ForestGreen" Click="ButtonStartThread1T_Click">Start</Button>
-                <Button x:Name="ButtonStopThread1T" Width="60" Background="Red" Click="ButtonStopThread1T_Click">Stop</Button>
+                <Button x:Name="ButtonStopThread1T" Width="60" Background="Red" IsEnabled="False" Click="ButtonStopThread1T_Click">Stop</Button>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="5">
-            <Label Foreground="DarkGray" Height="20" FontSize="8">Office Id | Random Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">Office PostId | Random Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxOfficeIdThread2" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxRandomMinThread2" Width="30" Margin="20,0,0,0" Text="5"></TextBox>
                 <TextBox x:Name="TextBoxRandomMaxThread2" Width="30" Margin="10,0,0,0" Text="10"></TextBox>
             </StackPanel>
-            <Label Foreground="DarkGray" Height="20" FontSize="8">NumType | Number Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">TakenNumberType | Number Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxNumtypeThread2" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxNumberMinThread2" Width="30" Margin="20,0,0,0" Text="1"></TextBox>
@@ -121,7 +121,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                 <Button x:Name="ButtonStartThread2" Width="60" Background="ForestGreen" Click="ButtonStartThread2_Click">Start</Button>
-                <Button x:Name="ButtonStopThread2" Width="60" Background="Red" Click="ButtonStopThread2_Click">Stop</Button>
+                <Button x:Name="ButtonStopThread2" Width="60" Background="Red" IsEnabled="False" Click="ButtonStopThread2_Click">Stop</Button>
             </StackPanel>
             <Label Foreground="DarkGray" Height="20" FontSize="8">Service Random Min Max</Label>
             <StackPanel Orientation="Horizontal">
@@ -130,18 +130,18 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                 <Button x:Name="ButtonStartThread2T" Width="60" Background="ForestGreen" Click="ButtonStartThread2T_Click">Start</Button>
-                <Button x:Name="ButtonStopThread2T" Width="60" Background="Red" Click="ButtonStopThread2T_Click">Stop</Button>
+                <Button x:Name="ButtonStopThread2T" Width="60" Background="Red" IsEnabled="False" Click="ButtonStopThread2T_Click">Stop</Button>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="5" Grid.Column="5">
-            <Label Foreground="DarkGray" Height="20" FontSize="8">Office Id | Random Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">Office PostId | Random Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxOfficeIdThread3" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxRandomMinThread3" Width="30" Margin="20,0,0,0" Text="5"></TextBox>
                 <TextBox x:Name="TextBoxRandomMaxThread3" Width="30" Margin="10,0,0,0" Text="10"></TextBox>
             </StackPanel>
-            <Label Foreground="DarkGray" Height="20" FontSize="8">NumType | Number Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">TakenNumberType | Number Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxNumtypeThread3" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxNumberMinThread3" Width="30" Margin="20,0,0,0" Text="1"></TextBox>
@@ -149,7 +149,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                 <Button x:Name="ButtonStartThread3" Width="60" Background="ForestGreen" Click="ButtonStartThread3_Click">Start</Button>
-                <Button x:Name="ButtonStopThread3" Width="60" Background="Red" Click="ButtonStopThread3_Click">Stop</Button>
+                <Button x:Name="ButtonStopThread3" Width="60" Background="Red" IsEnabled="False" Click="ButtonStopThread3_Click">Stop</Button>
             </StackPanel>
             <Label Foreground="DarkGray" Height="20" FontSize="8">Service Random Min Max</Label>
             <StackPanel Orientation="Horizontal">
@@ -158,7 +158,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                 <Button x:Name="ButtonStartThread3T" Width="60" Background="ForestGreen" Click="ButtonStartThread3T_Click">Start</Button>
-                <Button x:Name="ButtonStopThread3T" Width="60" Background="Red" Click="ButtonStopThread3T_Click">Stop</Button>
+                <Button x:Name="ButtonStopThread3T" Width="60" Background="Red" IsEnabled="False" Click="ButtonStopThread3T_Click">Stop</Button>
             </StackPanel>
         </StackPanel>
         

@@ -87,6 +87,7 @@ namespace NumberSender
                 TextBoxNumtypeThread1.Background = Brushes.Green;
                 TextBoxNumberMinThread1.Background = Brushes.Green;
                 TextBoxNumberMaxThread1.Background = Brushes.Green;
+                ButtonStartThread1.IsEnabled = true;
                 _vm.StartThread(
                     id: 1, 
                     officeId: officeId, 
@@ -151,6 +152,7 @@ namespace NumberSender
                 TextBoxNumtypeThread2.Background = Brushes.Green;
                 TextBoxNumberMinThread2.Background = Brushes.Green;
                 TextBoxNumberMaxThread2.Background = Brushes.Green;
+                ButtonStartThread2.IsEnabled = true;
                 _vm.StartThread(
                     id: 2,
                     officeId: officeId,
@@ -215,6 +217,7 @@ namespace NumberSender
                 TextBoxNumtypeThread3.Background = Brushes.Green;
                 TextBoxNumberMinThread3.Background = Brushes.Green;
                 TextBoxNumberMaxThread3.Background = Brushes.Green;
+                ButtonStartThread3.IsEnabled = true;
                 _vm.StartThread(
                     id: 3,
                     officeId: officeId,
@@ -237,7 +240,9 @@ namespace NumberSender
             TextBoxNumtypeThread1.Background = Brushes.White;
             TextBoxNumberMinThread1.Background = Brushes.White;
             TextBoxNumberMaxThread1.Background = Brushes.White;
+            ButtonStartThread1.IsEnabled = false;
         }
+
         private void ButtonStopThread2_Click(object sender, RoutedEventArgs e)
         {
             _vm.StopThread(id: 2);
@@ -248,6 +253,7 @@ namespace NumberSender
             TextBoxNumtypeThread2.Background = Brushes.White;
             TextBoxNumberMinThread2.Background = Brushes.White;
             TextBoxNumberMaxThread2.Background = Brushes.White;
+            ButtonStartThread2.IsEnabled = false;
         }
 
         private void ButtonStopThread3_Click(object sender, RoutedEventArgs e)
@@ -260,6 +266,7 @@ namespace NumberSender
             TextBoxNumtypeThread3.Background = Brushes.White;
             TextBoxNumberMinThread3.Background = Brushes.White;
             TextBoxNumberMaxThread3.Background = Brushes.White;
+            ButtonStartThread3.IsEnabled = false;
         }
 
         private void ButtonStartThread1T_Click(object sender, RoutedEventArgs e)
@@ -280,6 +287,7 @@ namespace NumberSender
             {
                 TextBoxRandomMinThread1T.Background = Brushes.Green;
                 TextBoxRandomMaxThread1T.Background = Brushes.Green;
+                ButtonStartThread1T.IsEnabled = true;
                 _vm.StartThreadT(id: 1, rndMin: rndMin, rndMax: rndMax);
             }
         }
@@ -302,6 +310,7 @@ namespace NumberSender
             {
                 TextBoxRandomMinThread2T.Background = Brushes.Green;
                 TextBoxRandomMaxThread2T.Background = Brushes.Green;
+                ButtonStartThread2T.IsEnabled = true;
                 _vm.StartThreadT(id: 2, rndMin: rndMin, rndMax: rndMax);
             }
         }
@@ -324,6 +333,7 @@ namespace NumberSender
             {
                 TextBoxRandomMinThread3T.Background = Brushes.Green;
                 TextBoxRandomMaxThread3T.Background = Brushes.Green;
+                ButtonStartThread3T.IsEnabled = true;
                 _vm.StartThreadT(id: 3, rndMin: rndMin, rndMax: rndMax);
             }
         }
@@ -334,6 +344,7 @@ namespace NumberSender
 
             TextBoxRandomMinThread1T.Background = Brushes.White;
             TextBoxRandomMaxThread1T.Background = Brushes.White;
+            ButtonStartThread1T.IsEnabled = false;
         }
 
         private void ButtonStopThread2T_Click(object sender, RoutedEventArgs e)
@@ -342,6 +353,7 @@ namespace NumberSender
 
             TextBoxRandomMinThread2T.Background = Brushes.White;
             TextBoxRandomMaxThread2T.Background = Brushes.White;
+            ButtonStartThread2T.IsEnabled = false;
         }
 
         private void ButtonStopThread3T_Click(object sender, RoutedEventArgs e)
@@ -350,6 +362,7 @@ namespace NumberSender
 
             TextBoxRandomMinThread3T.Background = Brushes.White;
             TextBoxRandomMaxThread3T.Background = Brushes.White;
+            ButtonStartThread3T.IsEnabled = false;
         }
 
         private void DataWindow_Closing(object sender, CancelEventArgs e)

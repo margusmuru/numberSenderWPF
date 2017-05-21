@@ -51,7 +51,6 @@ namespace NumberSender
 
                 int waitTime = _random.Next(minValue: _rndMin, maxValue: _rndMax);
 
-                //Console.WriteLine("Thread sleeps now " + waitTime);
                 _vm.SetSleepingTime(id: _threadNum, text: waitTime.ToString());
 
                 Thread.Sleep(millisecondsTimeout: waitTime * 1000);
@@ -60,14 +59,12 @@ namespace NumberSender
 
                 TakenNumberDTO dto = new TakenNumberDTO()
                 {
-                    Id = GetTimestamp(DateTime.Now),
+                    PostId = GetTimestamp(value: DateTime.Now),
                     Number = i,
                     DateTaken = DateTime.Now,
                     OfficeId = _officeId,
-                    NumType = _numType
+                    TakenNumberType = _numType
                 };
-
-                //Console.WriteLine("Post: " + dto.toJSON());
 
                 _vm.SetNumberResult(id: _threadNum, text: "Posted: \n" + dto.toJSON() + "\n", dto: dto);
 
