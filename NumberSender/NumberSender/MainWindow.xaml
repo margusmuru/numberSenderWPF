@@ -85,7 +85,7 @@
                 <TextBox x:Name="TextBoxRandomMinThread1" Width="30" Margin="20,0,0,0" Text="5"></TextBox>
                 <TextBox x:Name="TextBoxRandomMaxThread1" Width="30" Margin="10,0,0,0" Text="10"></TextBox>
             </StackPanel>
-            <Label Foreground="DarkGray" Height="20" FontSize="8">TakenNumberType | Number Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">NumTypeId | Number Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxNumtypeThread1" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxNumberMinThread1" Width="30" Margin="20,0,0,0" Text="1"></TextBox>
@@ -113,7 +113,7 @@
                 <TextBox x:Name="TextBoxRandomMinThread2" Width="30" Margin="20,0,0,0" Text="5"></TextBox>
                 <TextBox x:Name="TextBoxRandomMaxThread2" Width="30" Margin="10,0,0,0" Text="10"></TextBox>
             </StackPanel>
-            <Label Foreground="DarkGray" Height="20" FontSize="8">TakenNumberType | Number Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">NumTypeId | Number Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxNumtypeThread2" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxNumberMinThread2" Width="30" Margin="20,0,0,0" Text="1"></TextBox>
@@ -141,7 +141,7 @@
                 <TextBox x:Name="TextBoxRandomMinThread3" Width="30" Margin="20,0,0,0" Text="5"></TextBox>
                 <TextBox x:Name="TextBoxRandomMaxThread3" Width="30" Margin="10,0,0,0" Text="10"></TextBox>
             </StackPanel>
-            <Label Foreground="DarkGray" Height="20" FontSize="8">TakenNumberType | Number Min Max</Label>
+            <Label Foreground="DarkGray" Height="20" FontSize="8">NumTypeId | Number Min Max</Label>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="TextBoxNumtypeThread3" Width="30" Text="1"></TextBox>
                 <TextBox x:Name="TextBoxNumberMinThread3" Width="30" Margin="20,0,0,0" Text="1"></TextBox>

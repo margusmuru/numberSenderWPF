@@ -37,7 +37,7 @@ namespace NumberSender
 
         public void PostNumber()
         {
-            int i = _numMin;
+            int i = _numMin - 1;
             while (true)
             {
                 if (i == _numMax)
@@ -63,12 +63,12 @@ namespace NumberSender
                     Number = i,
                     DateTaken = DateTime.Now,
                     OfficeId = _officeId,
-                    TakenNumberType = _numType
+                    TakenNumberTypeId = _numType
                 };
 
-                _vm.SetNumberResult(id: _threadNum, text: "Posted: \n" + dto.toJSON() + "\n", dto: dto);
+                _vm.SetNumberResult(id: _threadNum, text: "Posted: \n" + dto.toJSON() + "\n", dto: null);
 
-                _takenNumber.Post(_vm, id: _threadNum, json: dto.toJSON());
+                _takenNumber.Post(_vm, id: _threadNum, dto: dto);
             }
 
         }

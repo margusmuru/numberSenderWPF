@@ -8,6 +8,7 @@ namespace NumberSender
 {
     public class TakenNumberDTO
     {
+        public int Id { get; set; }
         public string PostId { get; set; }
         public int Number { get; set; }
 
@@ -17,19 +18,20 @@ namespace NumberSender
 
         public DateTime? DateService { get; set; }
 
-        public int TakenNumberType { get; set; }
+        public int TakenNumberTypeId { get; set; }
 
         public int? WaitTime { get; set; }
 
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append(value: $"id: {PostId}\n");
+            builder.Append(value: $"id: {Id}\n");
+            builder.Append(value: $"Postid: {PostId}\n");
             builder.Append(value: $"number: {Number}\n");
             builder.Append(value: $"DateTaken: {DateTaken}\n");
             builder.Append(value: $"OfficeId: {OfficeId}\n");
             builder.Append(value: $"DateService: {DateService}\n");
-            builder.Append(value: $"TakenNumberType: {TakenNumberType}\n");
+            builder.Append(value: $"TakenNumberTypeId: {TakenNumberTypeId}\n");
             builder.Append(value: $"WaitTime: {WaitTime}\n");
             return builder.ToString();
         }
