@@ -161,27 +161,30 @@ namespace NumberSender
             Url = "http://localhost:29594/api/takennumbers";
         }
 
-        public void StartThread(int id, int officeId, int rndMin, int rndMax)
+        public void StartThread(int id, int officeId, int rndMin, int rndMax, int numType, int numMin, int numMax)
         {
             switch (id)
             {
                 case 1:
                     _mainWindow.ButtonStartThread1.IsEnabled = false;
-                    ThreadClass threadClass1 = new ThreadClass(vm: this, num: 1, office: officeId, rndStart: rndMin, rndStop: rndMax);
+                    ThreadClass threadClass1 = 
+                        new ThreadClass(vm: this, num: 1, office: officeId, rndStart: rndMin, rndStop: rndMax, numType: numType, numMin: numMin, numMax: numMax);
                     _thr1 = new Thread(start: threadClass1.PostNumber);
                     _thr1.Start();
                     _mainWindow.TextBoxDisplayNumber1.Text = "S";
                     break;
                 case 2:
                     _mainWindow.ButtonStartThread2.IsEnabled = false;
-                    ThreadClass threadClass2 = new ThreadClass(vm: this, num: 2, office: officeId, rndStart: rndMin, rndStop: rndMax);
+                    ThreadClass threadClass2 =
+                        new ThreadClass(vm: this, num: 2, office: officeId, rndStart: rndMin, rndStop: rndMax, numType: numType, numMin: numMin, numMax: numMax);
                     _thr2 = new Thread(start: threadClass2.PostNumber);
                     _thr2.Start();
                     _mainWindow.TextBoxDisplayNumber2.Text = "S";
                     break;
                 case 3:
                     _mainWindow.ButtonStartThread3.IsEnabled = false;
-                    ThreadClass threadClass3 = new ThreadClass(vm: this, num: 3, office: officeId, rndStart: rndMin, rndStop: rndMax);
+                    ThreadClass threadClass3 =
+                        new ThreadClass(vm: this, num: 3, office: officeId, rndStart: rndMin, rndStop: rndMax, numType: numType, numMin: numMin, numMax: numMax);
                     _thr3 = new Thread(start: threadClass3.PostNumber);
                     _thr3.Start();
                     _mainWindow.TextBoxDisplayNumber3.Text = "S";

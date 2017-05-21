@@ -40,9 +40,19 @@ namespace NumberSender
             int officeId = -1;
             int rndMin = -1;
             int rndMax = -1;
+
+            int numType = -1;
+            int numMin = -1;
+            int numMax = -1;
+
             Int32.TryParse(s: TextBoxOfficeIdThread1.Text, result: out officeId);
             Int32.TryParse(s: TextBoxRandomMinThread1.Text, result: out rndMin);
             Int32.TryParse(s: TextBoxRandomMaxThread1.Text, result: out rndMax);
+
+            Int32.TryParse(s: TextBoxNumtypeThread1.Text, result: out numType);
+            Int32.TryParse(s: TextBoxNumberMinThread1.Text, result: out numMin);
+            Int32.TryParse(s: TextBoxNumberMaxThread1.Text, result: out numMax);
+
             if (officeId < 0)
             {
                 TextBoxOfficeIdThread1.Background = Brushes.Red;
@@ -55,12 +65,37 @@ namespace NumberSender
             {
                 TextBoxRandomMaxThread1.Background = Brushes.Red;
             }
-            if (officeId >= 0 && rndMin >= 0 && rndMax > rndMin)
+
+            if (numType < 0)
+            {
+                TextBoxNumtypeThread1.Background = Brushes.Red;
+            }
+            if (numMin < 0)
+            {
+                TextBoxNumberMinThread1.Background = Brushes.Red;
+            }
+            if (numMax <= numMin)
+            {
+                TextBoxNumberMaxThread1.Background = Brushes.Red;
+            }
+
+            if (officeId >= 0 && rndMin >= 0 && rndMax > rndMin && numType >= 0 && numMin >= 0 && numMax > numMin)
             {
                 TextBoxOfficeIdThread1.Background = Brushes.Green;
                 TextBoxRandomMinThread1.Background = Brushes.Green;
                 TextBoxRandomMaxThread1.Background = Brushes.Green;
-                _vm.StartThread(id: 1, officeId: officeId, rndMin: rndMin, rndMax: rndMax);
+                TextBoxNumtypeThread1.Background = Brushes.Green;
+                TextBoxNumberMinThread1.Background = Brushes.Green;
+                TextBoxNumberMaxThread1.Background = Brushes.Green;
+                _vm.StartThread(
+                    id: 1, 
+                    officeId: officeId, 
+                    rndMin: rndMin, 
+                    rndMax: rndMax, 
+                    numType: numType,
+                    numMin: numMin,
+                    numMax: numMax
+                    );
             }
         }
 
@@ -69,9 +104,19 @@ namespace NumberSender
             int officeId = -1;
             int rndMin = -1;
             int rndMax = -1;
+
+            int numType = -1;
+            int numMin = -1;
+            int numMax = -1;
+
             Int32.TryParse(s: TextBoxOfficeIdThread2.Text, result: out officeId);
             Int32.TryParse(s: TextBoxRandomMinThread2.Text, result: out rndMin);
             Int32.TryParse(s: TextBoxRandomMaxThread2.Text, result: out rndMax);
+
+            Int32.TryParse(s: TextBoxNumtypeThread2.Text, result: out numType);
+            Int32.TryParse(s: TextBoxNumberMinThread2.Text, result: out numMin);
+            Int32.TryParse(s: TextBoxNumberMaxThread2.Text, result: out numMax);
+
             if (officeId < 0)
             {
                 TextBoxOfficeIdThread2.Background = Brushes.Red;
@@ -84,12 +129,37 @@ namespace NumberSender
             {
                 TextBoxRandomMaxThread2.Background = Brushes.Red;
             }
-            if (officeId >= 0 && rndMin >= 0 && rndMax > rndMin)
+
+            if (numType < 0)
+            {
+                TextBoxNumtypeThread2.Background = Brushes.Red;
+            }
+            if (numMin < 0)
+            {
+                TextBoxNumberMinThread2.Background = Brushes.Red;
+            }
+            if (numMax <= numMin)
+            {
+                TextBoxNumberMaxThread2.Background = Brushes.Red;
+            }
+
+            if (officeId >= 0 && rndMin >= 0 && rndMax > rndMin && numType >= 0 && numMin >= 0 && numMax > numMin)
             {
                 TextBoxOfficeIdThread2.Background = Brushes.Green;
                 TextBoxRandomMinThread2.Background = Brushes.Green;
                 TextBoxRandomMaxThread2.Background = Brushes.Green;
-                _vm.StartThread(id: 2, officeId: officeId, rndMin: rndMin, rndMax: rndMax);
+                TextBoxNumtypeThread2.Background = Brushes.Green;
+                TextBoxNumberMinThread2.Background = Brushes.Green;
+                TextBoxNumberMaxThread2.Background = Brushes.Green;
+                _vm.StartThread(
+                    id: 2,
+                    officeId: officeId,
+                    rndMin: rndMin,
+                    rndMax: rndMax,
+                    numType: numType,
+                    numMin: numMin,
+                    numMax: numMax
+                );
             }
         }
 
@@ -98,9 +168,19 @@ namespace NumberSender
             int officeId = -1;
             int rndMin = -1;
             int rndMax = -1;
+
+            int numType = -1;
+            int numMin = -1;
+            int numMax = -1;
+
             Int32.TryParse(s: TextBoxOfficeIdThread3.Text, result: out officeId);
             Int32.TryParse(s: TextBoxRandomMinThread3.Text, result: out rndMin);
             Int32.TryParse(s: TextBoxRandomMaxThread3.Text, result: out rndMax);
+
+            Int32.TryParse(s: TextBoxNumtypeThread3.Text, result: out numType);
+            Int32.TryParse(s: TextBoxNumberMinThread3.Text, result: out numMin);
+            Int32.TryParse(s: TextBoxNumberMaxThread3.Text, result: out numMax);
+
             if (officeId < 0)
             {
                 TextBoxOfficeIdThread3.Background = Brushes.Red;
@@ -113,12 +193,37 @@ namespace NumberSender
             {
                 TextBoxRandomMaxThread3.Background = Brushes.Red;
             }
-            if (officeId >= 0 && rndMin >= 0 && rndMax > rndMin)
+
+            if (numType < 0)
+            {
+                TextBoxNumtypeThread3.Background = Brushes.Red;
+            }
+            if (numMin < 0)
+            {
+                TextBoxNumberMinThread3.Background = Brushes.Red;
+            }
+            if (numMax <= numMin)
+            {
+                TextBoxNumberMaxThread3.Background = Brushes.Red;
+            }
+
+            if (officeId >= 0 && rndMin >= 0 && rndMax > rndMin && numType >= 0 && numMin >= 0 && numMax > numMin)
             {
                 TextBoxOfficeIdThread3.Background = Brushes.Green;
                 TextBoxRandomMinThread3.Background = Brushes.Green;
                 TextBoxRandomMaxThread3.Background = Brushes.Green;
-                _vm.StartThread(id: 3, officeId: officeId, rndMin: rndMin, rndMax: rndMax);
+                TextBoxNumtypeThread3.Background = Brushes.Green;
+                TextBoxNumberMinThread3.Background = Brushes.Green;
+                TextBoxNumberMaxThread3.Background = Brushes.Green;
+                _vm.StartThread(
+                    id: 3,
+                    officeId: officeId,
+                    rndMin: rndMin,
+                    rndMax: rndMax,
+                    numType: numType,
+                    numMin: numMin,
+                    numMax: numMax
+                );
             }
         }
 
@@ -129,6 +234,9 @@ namespace NumberSender
             TextBoxOfficeIdThread1.Background = Brushes.White;
             TextBoxRandomMinThread1.Background = Brushes.White;
             TextBoxRandomMaxThread1.Background = Brushes.White;
+            TextBoxNumtypeThread1.Background = Brushes.White;
+            TextBoxNumberMinThread1.Background = Brushes.White;
+            TextBoxNumberMaxThread1.Background = Brushes.White;
         }
         private void ButtonStopThread2_Click(object sender, RoutedEventArgs e)
         {
@@ -137,6 +245,9 @@ namespace NumberSender
             TextBoxOfficeIdThread2.Background = Brushes.White;
             TextBoxRandomMinThread2.Background = Brushes.White;
             TextBoxRandomMaxThread2.Background = Brushes.White;
+            TextBoxNumtypeThread2.Background = Brushes.White;
+            TextBoxNumberMinThread2.Background = Brushes.White;
+            TextBoxNumberMaxThread2.Background = Brushes.White;
         }
 
         private void ButtonStopThread3_Click(object sender, RoutedEventArgs e)
@@ -146,6 +257,9 @@ namespace NumberSender
             TextBoxOfficeIdThread3.Background = Brushes.White;
             TextBoxRandomMinThread3.Background = Brushes.White;
             TextBoxRandomMaxThread3.Background = Brushes.White;
+            TextBoxNumtypeThread3.Background = Brushes.White;
+            TextBoxNumberMinThread3.Background = Brushes.White;
+            TextBoxNumberMaxThread3.Background = Brushes.White;
         }
 
         private void ButtonStartThread1T_Click(object sender, RoutedEventArgs e)

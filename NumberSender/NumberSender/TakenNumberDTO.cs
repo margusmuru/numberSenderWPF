@@ -17,6 +17,8 @@ namespace NumberSender
 
         public DateTime? DateService { get; set; }
 
+        public int NumType { get; set; }
+
         public int? WaitTime { get; set; }
 
         public override string ToString()
@@ -27,7 +29,8 @@ namespace NumberSender
             builder.Append(value: $"DateTaken: {DateTaken}\n");
             builder.Append(value: $"OfficeId: {OfficeId}\n");
             builder.Append(value: $"DateService: {DateService}\n");
-            builder.Append(value: $"WaitTime: {WaitTime}");
+            builder.Append(value: $"NumType: {NumType}\n");
+            builder.Append(value: $"WaitTime: {WaitTime}\n");
             return builder.ToString();
         }
 

@@ -19,24 +19,30 @@ namespace NumberSender
         private readonly int _officeId;
         private readonly int _rndMin;
         private readonly int _rndMax;
+        private readonly int _numType;
+        private readonly int _numMin;
+        private readonly int _numMax;
 
-        public ThreadClass(MainWindowVM vm, int num, int office, int rndStart, int rndStop)
+        public ThreadClass(MainWindowVM vm, int num, int office, int rndStart, int rndStop, int numType, int numMin, int numMax)
         {
             _vm = vm;
             _threadNum = num;
             _officeId = office;
             _rndMin = rndStart * 1000;
             _rndMax = rndStop * 1000;
+            _numType = numType;
+            _numMin = numMin;
+            _numMax = numMax;
         }
 
         public void PostNumber()
         {
-            int i = 0;
+            int i = _numMin;
             while (true)
             {
-                if (i == 300)
+                if (i == _numMax)
                 {
-                    i = 0;
+                    i = _numMin;
                 }
                 else
                 {
@@ -57,7 +63,8 @@ namespace NumberSender
                     Id = GetTimestamp(DateTime.Now),
                     Number = i,
                     DateTaken = DateTime.Now,
-                    OfficeId = _officeId
+                    OfficeId = _officeId,
+                    NumType = _numType
                 };
 
                 //Console.WriteLine("Post: " + dto.toJSON());
