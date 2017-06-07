@@ -36,29 +36,36 @@ namespace NumberSender
 
                 streamWriter.Write(value: dto.toJSON());
             }
-
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(stream: httpResponse.GetResponseStream()))
+            try
             {
-                var result = streamReader.ReadToEnd();
-#if DEBUG
-                Trace.WriteLine(message: result);
-                //Trace.WriteLine(newDto.ToString());
-#endif
-                JObject myJsonNetObject = JObject.Parse(json: result);
-                
-#if DEBUG
-                Trace.WriteLine(message: (string) myJsonNetObject[key: "id"]);
-#endif
-                int newId = 0;
-                Int32.TryParse(s: (string) myJsonNetObject[key: "id"], result: out newId);
-                if (newId != 0)
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(stream: httpResponse.GetResponseStream()))
                 {
-                    dto.Id = newId;
-                }
+                    var result = streamReader.ReadToEnd();
+#if DEBUG
+                    Trace.WriteLine(message: result);
+                    //Trace.WriteLine(newDto.ToString());
+#endif
+                    JObject myJsonNetObject = JObject.Parse(json: result);
 
-                vm.SetNumberResult(id: id, text: "Returned: \n" + result + "\n", dto: dto);
+#if DEBUG
+                    Trace.WriteLine(message: (string)myJsonNetObject[key: "id"]);
+#endif
+                    int newId = 0;
+                    Int32.TryParse(s: (string)myJsonNetObject[key: "id"], result: out newId);
+                    if (newId != 0)
+                    {
+                        dto.Id = newId;
+                    }
+
+                    vm.SetNumberResult(id: id, text: "Returned: \n" + result + "\n", dto: dto);
+                }
             }
+            catch (WebException e)
+            {
+                vm.SetNumberResult(id: id, text: "Returned: \n" + e + "\n", dto: null);
+            }
+
         }
 
         public async Task Put(MainWindowVM vm, int id, String json)
